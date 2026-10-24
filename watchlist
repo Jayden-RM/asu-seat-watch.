@@ -1,0 +1,22 @@
+
+{
+  "defaultTerm": "2271",
+  "termNames": {
+    "2271": "Spring 2027",
+    "2277": "Fall 2027"
+  },
+  "classes": [
+    {
+      "classNumber": "15780",
+      "term": "2271",
+      "enabled": true,
+      "recipients": ["me"]
+    },
+    {
+      "classNumber": "26825",
+      "term": "2271",
+      "enabled": true,
+      "recipients": ["friend"]
+    }
+  ]
+}
