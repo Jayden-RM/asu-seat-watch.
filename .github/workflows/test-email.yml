@@ -1,50 +1,53 @@
 
-name: Monitor ASU class 15780
+name: Test ASU Email
 
 on:
   workflow_dispatch:
 
-permissions:
-  contents: write
-
-concurrency:
-  group: monitor-asu-15780
-  cancel-in-progress: false
-
 jobs:
-  check:
+  test:
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.58.2-noble
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check ASU class 15780
+      - name: Send test email
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           GAS_EMAIL_URL: ${{ secrets.GAS_EMAIL_URL }}
           GAS_SHARED_SECRET: ${{ secrets.GAS_SHARED_SECRET }}
-        run: node asu_check_once.js
-
-      - name: Save seat status
         run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          node <<'NODE'
+          (async () => {
+            const url = process.env.GAS_EMAIL_URL;
+            const token = process.env.GAS_SHARED_SECRET;
 
-          git add state/asu_seat_state.json
+            if (!url || !token) {
+              throw new Error("Missing email secrets");
+            }
 
-          if ! git diff --cached --quiet; then
-            git commit -m 'Update ASU seat status [skip ci]'
-            git push
-          fi
+            const response = await fetch(url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                token,
+                subject: "TEST: ASU EEE 202 Alert",
+                message: "Your GitHub email alerts work!"
+              })
+            });
+
+            const body = (await response.text()).trim();
+
+            if (!response.ok || body !== "OK") {
+              throw new Error("Email test failed");
+            }
+
+            console.log("Test email accepted!");
+          })().catch(error => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
