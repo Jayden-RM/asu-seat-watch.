@@ -1,11 +1,11 @@
 {
   "2271|26825": {
-    "available": false,
-    "free": 0,
-    "cap": 60,
-    "status": "C",
+    "available": true,
+    "free": 34,
+    "cap": 125,
+    "status": "O",
     "reserved": false,
-    "course": "EEE 202"
+    "course": "EEE 120"
   },
-  "lastHeartbeat": "2026-10-24T00:43:04.967Z"
+  "lastHeartbeat": "2026-10-24T06:25:43.263Z"
 }
