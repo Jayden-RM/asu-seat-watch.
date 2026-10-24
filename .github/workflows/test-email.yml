@@ -1,4 +1,3 @@
-
 name: Test ASU Email
 
 on:
@@ -7,47 +6,27 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Send test email
+      - name: Send test to email alias me
         env:
           GAS_EMAIL_URL: ${{ secrets.GAS_EMAIL_URL }}
           GAS_SHARED_SECRET: ${{ secrets.GAS_SHARED_SECRET }}
         run: |
           node <<'NODE'
           (async () => {
-            const url = process.env.GAS_EMAIL_URL;
-            const token = process.env.GAS_SHARED_SECRET;
-
-            if (!url || !token) {
-              throw new Error("Missing email secrets");
-            }
-
-            const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
+            if (!process.env.GAS_EMAIL_URL || !process.env.GAS_SHARED_SECRET) throw new Error('Missing GitHub email secrets');
+            const response = await fetch(process.env.GAS_EMAIL_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                token,
-                subject: "TEST: ASU EEE 202 Alert",
-                message: "Your GitHub email alerts work!"
+                token: process.env.GAS_SHARED_SECRET,
+                recipient: 'me',
+                subject: 'TEST: ASU class watchlist',
+                message: 'Your GitHub ASU email notification works.'
               })
             });
-
             const body = (await response.text()).trim();
-
-            if (!response.ok || body !== "OK") {
-              throw new Error("Email test failed");
-            }
-
-            console.log("Test email accepted!");
-          })().catch(error => {
-            console.error(error);
-            process.exit(1);
-          });
+            if (!response.ok || body !== 'OK') throw new Error('Email test failed: ' + response.status + ' ' + body);
+            console.log('Test email accepted for alias me!');
+          })().catch(e => { console.error(e); process.exitCode = 1; });
           NODE
