@@ -5,7 +5,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const CLASS_NUMBER = '15780';
+const CLASS_NUMBER = '26825';
 const TERM = '2271';
 const TERM_NAME = 'Spring 2027';
 const STATE_FILE = path.join(__dirname, 'state', 'asu_seat_state.json');
