@@ -3,7 +3,7 @@ name: Monitor ASU class 15780
 
 on:
   schedule:
-    - cron: '2/5 * * * *'
+    - cron: '3/5 * * * *'
   workflow_dispatch:
 
 permissions:
