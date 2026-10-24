@@ -9,7 +9,7 @@
     "notifiedRecipients": [],
     "discordSent": false
   },
-  "lastHeartbeat": "2026-10-24T06:40:46.782Z",
+  "lastHeartbeat": "2026-10-24T06:48:28.250Z",
   "2271|26825": {
     "available": true,
     "free": 34,
@@ -20,6 +20,16 @@
     "notifiedRecipients": [
       "friend"
     ],
+    "discordSent": false
+  },
+  "2271|12902": {
+    "available": false,
+    "free": 0,
+    "cap": 24,
+    "status": "C",
+    "reserved": false,
+    "course": "PHY 132",
+    "notifiedRecipients": [],
     "discordSent": false
   }
 }
