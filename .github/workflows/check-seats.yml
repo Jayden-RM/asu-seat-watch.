@@ -1,5 +1,5 @@
 
-name: Monitor ASU class 15780
+name: Monitor ASU class 26825
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: monitor-asu-15780
+  group: monitor-asu-26825
   cancel-in-progress: false
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check ASU class 15780
+      - name: Check ASU class 26825
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           GAS_EMAIL_URL: ${{ secrets.GAS_EMAIL_URL }}
