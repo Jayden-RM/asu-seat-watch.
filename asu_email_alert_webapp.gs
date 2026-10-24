@@ -4,8 +4,8 @@
  *  Set DESTINATION_EMAIL and SHARED_SECRET to your values before deployment.
  *  Keep the secret private and never commit it to public Git repositories.
  */
-const DESTINATION_EMAIL = 'REPLACE_WITH_YOUR_EMAIL';
-const SHARED_SECRET = 'REPLACE_WITH_A_LONG_RANDOM_SECRET';
+const DESTINATION_EMAIL = 'nicolezhu1212@gmail.com';
+const SHARED_SECRET = '123456789123456789123456789123456789';
 
 function doPost(e) {
   try {
