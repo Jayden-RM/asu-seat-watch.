@@ -9,5 +9,17 @@
     "notifiedRecipients": [],
     "discordSent": false
   },
-  "lastHeartbeat": "2026-10-24T00:43:04.967Z"
+  "lastHeartbeat": "2026-10-24T06:40:46.782Z",
+  "2271|26825": {
+    "available": true,
+    "free": 34,
+    "cap": 125,
+    "status": "O",
+    "reserved": false,
+    "course": "EEE 120",
+    "notifiedRecipients": [
+      "friend"
+    ],
+    "discordSent": false
+  }
 }
