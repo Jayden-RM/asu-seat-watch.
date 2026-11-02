@@ -9,7 +9,7 @@
     "notifiedRecipients": [],
     "discordSent": false
   },
-  "lastHeartbeat": "2026-10-24T06:48:28.250Z",
+  "lastHeartbeat": "2026-11-02T21:11:20.626Z",
   "2271|26825": {
     "available": true,
     "free": 34,
@@ -29,6 +29,16 @@
     "status": "C",
     "reserved": false,
     "course": "PHY 132",
+    "notifiedRecipients": [],
+    "discordSent": false
+  },
+  "2271|12041": {
+    "available": false,
+    "free": 0,
+    "cap": 80,
+    "status": "C",
+    "reserved": false,
+    "course": "MAT 275",
     "notifiedRecipients": [],
     "discordSent": false
   }
