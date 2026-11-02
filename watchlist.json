@@ -9,13 +9,19 @@
       "classNumber": "15780",
       "term": "2271",
       "enabled": true,
-      "recipients": ["me", "friend"]
+      "recipients": ["me", "nickle"]
     },
     {
       "classNumber": "12902",
       "term": "2271",
       "enabled": true,
       "recipients": ["me"]
+    },
+    {
+      "classNumber": "12041",
+      "term": "2271",
+      "enabled": true,
+      "recipients": ["chel"]
     }
   ]
 }
