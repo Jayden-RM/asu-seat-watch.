@@ -1,15 +1,18 @@
 {
   "2271|15780": {
-    "available": false,
-    "free": 0,
-    "cap": 61,
-    "status": "C",
+    "available": true,
+    "free": 1,
+    "cap": 62,
+    "status": "O",
     "reserved": false,
     "course": "EEE 202",
-    "notifiedRecipients": [],
+    "notifiedRecipients": [
+      "me",
+      "nickle"
+    ],
     "discordSent": false
   },
-  "lastHeartbeat": "2026-11-07T01:10:47.467Z",
+  "lastHeartbeat": "2026-11-09T17:01:03.257Z",
   "2271|26825": {
     "available": true,
     "free": 34,
